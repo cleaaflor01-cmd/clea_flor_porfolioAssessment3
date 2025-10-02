@@ -1,34 +1,593 @@
-<!DOCTYPE htmt<!
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css/style.css">
-</head>
+    <title>Pink Portfolio</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-pink: #ff6b8b;
+            --secondary-pink: #ffafbd;
+            --light-pink: #ffdfe4;
+            --dark-pink: #d74d6c;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --dark-gray: #343a40;
+            --text-color: #495057;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--dark-pink);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-pink), var(--secondary-pink));
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary-pink), var(--secondary-pink));
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(255, 107, 139, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 139, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-pink);
+            border: 2px solid var(--primary-pink);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-pink);
+            color: var(--white);
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-pink);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-pink);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            margin: 3px 0;
+            background-color: var(--dark-pink);
+            transition: 0.3s;
+        }
+
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 20px 60px;
+            background: linear-gradient(135deg, var(--light-pink) 0%, var(--white) 100%);
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-gray);
+        }
+
+        .highlight {
+            color: var(--primary-pink);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-color);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover; 
+
+        }
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        .about-img {
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(255, 107, 139, 0.2);
+            margin-bottom: 1rem; 
+        }
+        .img {
+            max-width: 100%;
+            height: auto;
+            display: block; 
+        }
+
+
+        .about {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .about-content {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-pink);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+
+        .projects {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-gray);
+        }
+
+        .project-desc {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .project-tech span {
+            background-color: var(--light-pink);
+            color: var(--primary-pink);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .skills {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .skill-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-pink);
+        }
+
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-name {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 10px;
+            background-color: var(--light-gray);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary-pink), var(--secondary-pink));
+            border-radius: 5px;
+            width: 0;
+            transition: width 1s ease-in-out;
+        }
+
+        .contact {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--light-pink) 0%, var(--white) 100%);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-item i {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, var(--primary-pink), var(--secondary-pink));
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            font-size: 1.2rem;
+        }
+
+        .contact-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+            color: var(--dark-gray);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-pink);
+        }
+
+        .footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 2rem 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-pink);
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: var(--white);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 120px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-stats {
+                justify-content: center;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .about-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    </head>
 <body>
     
-    <header>
-        <nav>
-            <a href="#" class="logo">MyPortfolio</a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#activities">Hobbies</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button class="mobile-menu-btn">☰</button>
-        </nav>
-    </header>
-
-   
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content animate">
-                <h1>Hello, I'm Clea Antonette A. Flor</h1>
-                <a href="#about" class="cta-button">Click to Start</a>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Portfolio</a>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Hello, I'm <span class="highlight">Clea Antonette A. Flor</span></h1>
+            <p class="hero-subtitle">Second year College Student </p>
+            <div class="hero-buttons">
+                <a href="#about" class="btn btn-primary">About Me</a>
+                <a href="#skills" class="btn btn-secondary">Skills</a>
+                <a href="#Activities" class="btn btn-secondary">View My Activities</a>
+                <a href="#contact" class="btn btn-secondary">Contact Me</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="/assets/clea.png" height="300" width="350" alt="my profile" class="profile-img">
+            <i class="fas fa-user"></i>
         </div>
     </section>
 
@@ -36,81 +595,259 @@
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
-                <div class="about-image animate delay-1">
-                <img src="/assets/cleaimage.png" height="200" width="250" alt="Picture of your activity"class="Activity" />
-                   <div className="flex-1 space-y-4">
-        <h4 className="text-2xl font-semibold text-foreground">Who Am I?</h2>
-        <p className="text-muted-foreground leading-relaxed">
-        </p><div class="activity-card animate delay-2">
-      </div>
-                <h4>I am a second-year student taking Bachelor of Science in Information Technology 
-          at Occidental Mindoro State College, want to learn more about programming and 
-          technology to build my skills for the future.</h4>
-
+                <div class="about-text">
+                    <p>I am a second-year BSIT student. I am learning about programming, computer systems, and technologies that solve real-world problems. As I move forward, I aim to develop my skills and become more passionate about my chosen field.</p>
+                </div>
+            </div>
         </div>
     </section>
+
+    <section id="Activities" class="Activities">
+        <div class="container">
+            <h2 class="section-title">My Activities</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                         <img src="/assets/vmgo.png" alt="Proof of my activity">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">VMGO</h3>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                         <img src="/assets/OS installation.png" alt="Proof of my activity">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">OS Installation</h3>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                         <img src="/assets/Ubuntu.png" alt="Proof of my activity">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Ubuntu</h3>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                         <img src="/assets/alison.png" alt="Proof of my activity">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Alison Course Assessment</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="skills" class="skills">
         <div class="container">
             <h2 class="section-title">My Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card animate delay-1">
-                    <div class="skill-icon">🌐</div>
-                    <h3>Good communication</h3>
-                    <p>Communication, Leadership, Teamwork, and critical thinking </p>
-                </div>
-                <div class="skill-card animate delay-2">
-                    <div class="skill-icon">🎨</div>
-                    <h3>Creative Skills</h3>
-                    <p>Graphic Design and Editing using canva</p>
-            </div>
-        </div>
-    </section>
-    <section id="activities" class="activities">
-        <div class="container">
-            <h2 class="section-title">My Activities</h2>
-            <div class="activities-container">
-                <div class="activity-card animate delay-1">
-                    <img src="/assets/vmgo.png" height="300" width="350" alt="Picture of your activity" class="activity-image" />
-                    <h3>Activity "VMGO"</h3>
-                </div>
-                <div class="activity-card animate delay-2">
-                    <img src="/assets/OS installation.png" height="300" width="350" alt="Picture of your activity"class="activity-image" />
-                    <h3>Installation of OS</h3>
-                </div>
-                <div class="activity-card animate delay-3">
-                    <img src="/assets/Ubuntu.png" height="300" width="350" alt="Picture of your activity" class="activity-image" />
-                    <h3>Ubuntu Linux</h3>
-                </div>
-                <div class="activity-card animate delay-3">
-                    <img src="/assets/alison.png" height="300" width="350" alt="Picture of your activity" class="activity-image" />
-                    <h3>Alison Course</h3>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <div class="skill-item">
+                        <span class="skill-name">Leadership</span>
+                        <div class="skill-bar">
+                             <div class="skill-progress" data-width="85%"></div> 
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Communication </span>
+                        <div class="skill-bar">
+                             <div class="skill-progress" data-width="90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Editing Using Canva</span>
+                        <div class="skill-bar">
+                             <div class="skill-progress" data-width="95%"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Contact</h2>
             <div class="contact-content">
-                <div class="contact-info animate delay-1">
+                <div class="contact-info">
                     <div class="contact-item">
-                        <div class="contact-icon">📧</div>
+                        <i class="fas fa-envelope"></i>
                         <div>
                             <h3>Email</h3>
-                            <p>cleaflor01@gmail.com</p>
+                            <p>cleaaflor01@gmail.com</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">📱</div>
+                        <i class="fas fa-phone"></i>
                         <div>
                             <h3>Phone</h3>
-                            <p>09358034609</p>
+                            <p>09366741632</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">📍</div>
+                        <i class="fas fa-map-marker-alt"></i>
                         <div>
                             <h3>Location</h3>
-                            <p>Barangay Tangkalan,Mamburao Occidental Mindoro</p>
+                            <p>Barangay Tangkalan Mamburao Occidental Mindoro</p>
                         </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p> My 1st Sem Portfolio</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+
+        document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }));
+
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const navHeight = document.querySelector('.navbar').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+
+        const skillBars = document.querySelectorAll('.skill-progress');
+
+        function animateSkillBars() {
+            skillBars.forEach(bar => {
+                const barPosition = bar.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (barPosition < screenPosition) {
+                    const width = bar.getAttribute('data-width');
+                    bar.style.width = width;
+                }
+            });
+        }
+
+
+        window.addEventListener('load', animateSkillBars);
+        window.addEventListener('scroll', animateSkillBars);
+
+
+        const contactForm = document.querySelector('.contact-form');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+               
+                const name = this.querySelector('input[type="text"]').value;
+                const email = this.querySelector('input[type="email"]').value;
+                const message = this.querySelector('textarea').value;
+                
+                
+                if (!name || !email || !message) {
+                    alert('Please fill in all fields');
+                    return;
+                }
+                
+               
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert('Please enter a valid email address');
+                    return;
+                }
+                
+               
+                alert('Thank you for your message! I will get back to you soon.');
+                this.reset();
+            });
+        }
+
+        const animatedElements = document.querySelectorAll('.project-card, .about-content, .contact-content');
+
+        function checkScroll() {
+            animatedElements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = 1;
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        animatedElements.forEach(element => {
+            element.style.opacity = 0;
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+
+        window.addEventListener('load', checkScroll);
+        window.addEventListener('scroll', checkScroll);
+
+
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+
+            if (navbar) {
+                if (window.scrollY > 50) {
+                    navbar.style.padding = '0.5rem 0';
+                    navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+                } else {
+                    navbar.style.padding = '1rem 0';
+                    navbar.style.boxShadow = 'none';
+                }
+            }
+        });
+    </script>
+    </body>
 </html>
