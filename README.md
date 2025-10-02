@@ -1,7 +1,6 @@
 # clea_flor_porfolioAssessment3
 My personal web portfolio
 
- Short Bio
 Hello! I'm Clea Antonette A. Flor, a second-year college student taking up Bachelor of Science in Information Technology. This portfolio showcases my first semester's work, including activities and skills developed as I start my journey into programming and technology.
 
  Live Site
