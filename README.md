@@ -25,4 +25,4 @@ This project was built entirely using core web technologies:
 # Contact Me:
 I'm always open to connection!
 Email:cleaaflor01@gmail.com
-GitHub:cleaaflor01-cmd
+GitHub:github.com/cleaaflor01-cmd
