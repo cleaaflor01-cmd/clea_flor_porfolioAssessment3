@@ -10,17 +10,17 @@ You can view the deployed version of this portfolio here:
 
 # Portfolio Sections:
 This portfolio is organized into the following sections;
-Home: Introduction and main call-to-action buttons.
-About: Detailed background and short description about me.
-Activities (Projects): In this section it shows my first semester activities (VMGO, OS Installation, Ubuntu, Alison Course).
-Skills: Shows skills (Leadership, Communication, Editing).
-Contact: Form and information for reaching me.
+# Home: Introduction and main call-to-action buttons.
+# About: Detailed background and short description about me.
+# Activities (Projects): In this section it shows my first semester activities (VMGO, OS Installation, Ubuntu, Alison Course).
+# Skills: Shows skills (Leadership, Communication, Editing).
+# Contact: Form and information for reaching me.
 
 # Technology Used:
 This project was built entirely using core web technologies:
-HTML5: Structure and content.
-CSS:Style/Design
-JavaScript:Interactivity
+# HTML5: Structure and content.
+# CSS:Style/Design
+# JavaScript:Interactivity
 
 # Contact Me:
 I'm always open to connection!
